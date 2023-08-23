@@ -5,7 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:riverpod_testing/app_constants/db_constants.dart';
 import 'package:riverpod_testing/core/enum_collection/theme_type.dart';
 import 'package:riverpod_testing/core/locale/support_locale.dart';
-import 'package:riverpod_testing/data_model/cache/cache_post.dart';
+import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
 import 'package:rxdart/rxdart.dart';
 
 final databaseService = Provider<DatabaseService>((_) => DatabaseService());
@@ -24,7 +24,7 @@ final favouritePostListStream = StreamProvider.autoDispose((ref) async* {
 
 class DatabaseService {
   late final Box<String> _themeBox;
-  late final Box<CachePost> _postBox;
+  late final Box<CacheMeal> _favouriteMealBox;
   late final Box<String> _languageBox;
   late final Box<String> _userDataBox;
 
@@ -36,15 +36,6 @@ class DatabaseService {
 
     if (_themeBox.values.isEmpty) {
       _themeBox.add(ThemeType.light.name);
-    }
-  }
-
-  Future<void> initUserDataBox() async {
-    await Hive.openBox<String>(DBConstants.userDataBox)
-        .then((value) => _userDataBox = value);
-
-    if (_userDataBox.values.isEmpty) {
-      _userDataBox.add("");
     }
   }
 
@@ -60,8 +51,8 @@ class DatabaseService {
   }
 
   Future<void> initPostBox() async {
-    await Hive.openBox<CachePost>(DBConstants.postBox)
-        .then((value) => _postBox = value);
+    await Hive.openBox<CacheMeal>(DBConstants.postBox)
+        .then((value) => _favouriteMealBox = value);
   }
 
   Future<void> toggleSaveTheme(String mode) async =>
@@ -75,67 +66,67 @@ class DatabaseService {
 
   String getUserBox() => _userDataBox.getAt(0) ?? "";
 
-  Future<void> changePostStatus(CachePost cachePost) async {
-    cachePost.isFavourite = !cachePost.isFavourite;
-    cachePost.save();
+  Future<void> changePostStatus(CacheMeal cacheMeal) async {
+    cacheMeal.isFavourite = !cacheMeal.isFavourite;
+    cacheMeal.save();
   }
 
-  Future<void> insertPostList(List<CachePost> postList) async {
+  Future<void> insertPostList(List<CacheMeal> postList) async {
     for (var newData in postList) {
       // Check if the data already exists in the box
-      int existingIndex = _postBox.values
-          .cast<CachePost>()
+      int existingIndex = _favouriteMealBox.values
+          .cast<CacheMeal>()
           .toList()
-          .indexWhere((item) => item.id == newData.id);
+          .indexWhere((item) => item.mealId == newData.mealId);
 
       if (existingIndex != -1) {
         // Update existing data
-        _postBox.putAt(existingIndex, newData);
+        _favouriteMealBox.putAt(existingIndex, newData);
       } else {
         // Add new data
-        _postBox.add(newData);
+        _favouriteMealBox.add(newData);
       }
     }
   }
 
-  Stream<List<CachePost>> getPostStream() {
-    return _postBox
+  Stream<List<CacheMeal>> getPostStream() {
+    return _favouriteMealBox
         .watch()
         .map((event) => getPostList())
         .startWith(getPostList());
   }
 
   Stream<int> getFavouritePostStream() {
-    return _postBox
+    return _favouriteMealBox
         .watch()
         .map((event) => getFavouritePostCount())
         .startWith(getFavouritePostCount());
   }
 
-  Stream<List<CachePost>> getFavouritePostListStream() {
-    return _postBox
+  Stream<List<CacheMeal>> getFavouritePostListStream() {
+    return _favouriteMealBox
         .watch()
         .map((event) => getFavouritePostList())
         .startWith(getFavouritePostList());
   }
 
-  List<CachePost> getPostList() {
-    return List<CachePost>.from(_postBox.values);
+  List<CacheMeal> getPostList() {
+    return List<CacheMeal>.from(_favouriteMealBox.values);
   }
 
   Locale getLanguage() {
     return Locale(_languageBox.getAt(0) ?? SupportedLocale.en.languageCode);
   }
 
-  List<CachePost> getFavouritePostList() {
-    final favouriteList = List<CachePost>.from(_postBox.values)
+  List<CacheMeal> getFavouritePostList() {
+    final favouriteList = List<CacheMeal>.from(_favouriteMealBox.values)
         .where((element) => element.isFavourite)
         .toList();
     return favouriteList;
   }
 
   int getFavouritePostCount() {
-    final favouritePostList = List<CachePost>.from(_postBox.values)
+    final favouritePostList = List<CacheMeal>.from(_favouriteMealBox.values)
         .where((element) => element.isFavourite)
         .toList();
     return favouritePostList.length;

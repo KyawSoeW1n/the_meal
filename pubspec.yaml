@@ -115,7 +115,6 @@ flutter:
   assets:
     - locale/
     - development.config.json
-    - local.config.json
     - production.config.json
 
   # To add assets to your application, add an assets section, like this:
@@ -157,27 +156,27 @@ flavorizr:
   flavors:
     local:
       app:
-        name: "Riverpod Local"
+        name: "The Meal Local"
 
       android:
-        applicationId: "com.riverpod.local"
+        applicationId: "com.kuriotetsuya.the.meal.local"
       ios:
-        bundleId: "com.riverpod.local"
+        bundleId: "com.kuriotetsuya.the.meal.local"
 
     development:
       app:
-        name: "Riverpod Dev"
+        name: "The Meal Dev"
 
       android:
-        applicationId: "com.riverpod.dev"
+        applicationId: "com.kuriotetsuya.the.meal.dev"
       ios:
-        bundleId: "com.riverpod.dev"
+        bundleId: "com.kuriotetsuya.the.meal.dev"
 
     production:
       app:
-        name: "Riverpod"
+        name: "The Meal"
 
       android:
-        applicationId: "roi.riverpod"
+        applicationId: "com.kuriotetsuya.the.meal"
       ios:
-        bundleId: "com.riverpod"
+        bundleId: "com.kuriotetsuya.the.meal"

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_testing/data_model/cache/cache_post.dart';
+import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
 import 'package:riverpod_testing/widget/common/text_view_widget.dart';
 
 import '../../core/resource/app_dimens.dart';
 
 class PostItem extends StatelessWidget {
-  final CachePost postVO;
+  final CacheMeal favouriteMeal;
   final Function function;
 
   const PostItem(
-    this.postVO,
+    this.favouriteMeal,
     this.function, {
     Key? key,
   }) : super(key: key);
@@ -36,9 +36,9 @@ class PostItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  TextViewWidget("${postVO.id}"),
+                  TextViewWidget("${favouriteMeal.mealId}"),
                   TextViewWidget(
-                    postVO.title,
+                    favouriteMeal.mealName,
                     maxLine: 1,
                   ),
                 ],
@@ -46,8 +46,8 @@ class PostItem extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () => function(postVO),
-            icon: postVO.isFavourite
+            onPressed: () => function(favouriteMeal),
+            icon: favouriteMeal.isFavourite
                 ? const Icon(Icons.favorite)
                 : const Icon(Icons.favorite_outline),
           )

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:riverpod_testing/data_model/cache/cache_post.dart';
+import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
 
 import 'app_constants/app_route_configuration.dart';
 import 'core/config/flavors.dart';
@@ -19,13 +19,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlavourManager().init(Flavor.development);
   await Hive.initFlutter();
-  Hive.registerAdapter(CachePostAdapter());
+  Hive.registerAdapter(CacheMealAdapter());
 
   final dbService = DatabaseService();
   await dbService.initTheme();
   await dbService.initPostBox();
   await dbService.initLanguageBox();
-  await dbService.initUserDataBox();
   runApp(
     ProviderScope(
       overrides: [

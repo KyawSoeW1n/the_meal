@@ -58,18 +58,18 @@ android {
     productFlavors {
         local {
             dimension "flavor-type"
-            applicationId "com.riverpod.local"
-            resValue "string", "app_name", "Riverpod Local"
+            applicationId "com.kuriotetsuya.the.meal.local"
+            resValue "string", "app_name", "The Meal Local"
         }
         development {
             dimension "flavor-type"
-            applicationId "com.riverpod.dev"
-            resValue "string", "app_name", "Riverpod Dev"
+            applicationId "com.kuriotetsuya.the.meal.dev"
+            resValue "string", "app_name", "The Meal Dev"
         }
         production {
             dimension "flavor-type"
-            applicationId "com.riverpod"
-            resValue "string", "app_name", "Riverpod"
+            applicationId "com.kuriotetsuya.the.meal"
+            resValue "string", "app_name", "The Meal"
         }
     }
 

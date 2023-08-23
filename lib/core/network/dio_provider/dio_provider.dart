@@ -52,17 +52,6 @@ class DioProvider {
   }
 
   static _addHeader() {
-    String? authToken;
-    // var prefData =
-    //     Get.find<CacheManager>().getString(CacheManagerKey.loginResponseData) ??
-    //         "";
-    // if (prefData.isNotEmpty) {
-    //   Map<String, dynamic> loginUserData = jsonDecode(prefData);
-    //   var user = LoginResponse.fromJson(loginUserData);
-    //   authToken = user.token;
-    // }
-
-    debugPrint("Auth Token is *** $authToken");
     _instance?.options.headers = {
       "Content-Type": Headers.jsonContentType,
     };

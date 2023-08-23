@@ -1,9 +1,9 @@
-import 'package:riverpod_testing/data_model/cache/cache_post.dart';
+import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
 
 abstract class FavouritePostLocalDataSource {
-  Stream<List<CachePost>> getPostList();
+  Stream<List<CacheMeal>> getMealsList();
 
-  Future<void> addFavouritePost(CachePost cachePost);
+  Future<void> addFavouriteMeal(CacheMeal cachePost);
 
-  Future<void> insertPostList(List<CachePost> postList);
+  Future<void> insertMealList(List<CacheMeal> postList);
 }

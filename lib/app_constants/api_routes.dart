@@ -1,4 +1,4 @@
 class ApiRoutes {
-  static const getPhoto = "photos";
-  static const getToDoList = "todos";
+  static const getMealsListByeCategory = "filter.php";
+  static const getCategories = "categories.php";
 }
