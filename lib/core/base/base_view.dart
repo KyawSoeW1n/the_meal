@@ -7,13 +7,13 @@ abstract class BaseView<T> extends HookConsumerWidget {
 
   Widget body(BuildContext context, WidgetRef ref);
 
-  PreferredSizeWidget? appBar(BuildContext context) => null;
+  PreferredSizeWidget? appBar(BuildContext context, WidgetRef ref) => null;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       key: globalKey,
-      appBar: appBar(context),
+      appBar: appBar(context, ref),
       floatingActionButton: floatingActionButton(),
       floatingActionButtonLocation: floatingActionButtonLocation(),
       bottomNavigationBar: bottomNavigationBar(),

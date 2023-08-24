@@ -20,7 +20,7 @@ class MealListScreen extends BaseView {
   MealListScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
+  PreferredSizeWidget? appBar(BuildContext context, WidgetRef ref) {
     return CommonAppBar(
       "Meals",
       actionList: [

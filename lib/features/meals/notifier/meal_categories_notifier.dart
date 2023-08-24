@@ -11,7 +11,9 @@ final mealCategoriesNotifierProvider = StateNotifierProvider.autoDispose<
   final selectMealCategory =
       ref.watch(selectedMealCategoryNotifierProvider.notifier);
   return MealCategoriesNotifier(
-      ref.read(fetchMealCategoriesUseCaseImpl), selectMealCategory);
+    ref.read(fetchMealCategoriesUseCaseImpl),
+    selectMealCategory,
+  );
 });
 
 class MealCategoriesNotifier

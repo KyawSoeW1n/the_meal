@@ -12,7 +12,7 @@ class FavouriteMealsScreen extends BaseView {
   FavouriteMealsScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
+  PreferredSizeWidget? appBar(BuildContext context,WidgetRef ref) {
     return const CommonAppBar("Favourites");
   }
 

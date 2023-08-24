@@ -51,6 +51,15 @@ class DatabaseService {
     }
   }
 
+  Future<void> initUserDataBox() async {
+    await Hive.openBox<String>(DBConstants.userBox)
+        .then((value) => _userDataBox = value);
+
+    if (_userDataBox.values.isEmpty) {
+      _userDataBox.add("");
+    }
+  }
+
   Future<void> initMealBox() async {
     await Hive.openBox<CacheMeal>(DBConstants.postBox)
         .then((value) => _favouriteMealBox = value);
