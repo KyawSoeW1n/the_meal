@@ -23,7 +23,7 @@ void main() async {
 
   final dbService = DatabaseService();
   await dbService.initTheme();
-  await dbService.initPostBox();
+  await dbService.initMealBox();
   await dbService.initLanguageBox();
   runApp(
     ProviderScope(

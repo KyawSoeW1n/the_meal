@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:the_meal/core/resource/app_dimens.dart';
 import 'package:the_meal/features/meals/widgets/cache_post_list_widget.dart';
 import 'package:the_meal/features/meals/widgets/error_handling_widget.dart';
 import 'package:the_meal/features/meals/widgets/meal_categories_header_widget.dart';
@@ -40,25 +41,33 @@ class MealListScreen extends BaseView {
     final selectedMealCategoryProvider =
         ref.watch(selectedMealCategoryNotifierProvider);
 
-    final postListStreamProvider = ref.watch(postsStreamProvider);
+    final postListStreamProvider = ref.watch(mealListStreamProvider);
 
     return Column(
       children: [
-        mealCategoriesProvider.maybeWhen(
-          orElse: () => const SizedBox(),
-          loading: () => const LoadingWidget(),
-          success: (data) => SizedBox(
-            height: 30,
-            child: MealCategoriesHeaderWidget(
-              data ?? [],
-              selectedMealCategoryProvider.data,
-              (mealCategoryVO) {
-                ref
-                    .read(selectedMealCategoryNotifierProvider.notifier)
-                    .changeMealCategory(mealCategoryVO);
-              },
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppDimens.margin8,
+          ),
+          child: mealCategoriesProvider.maybeWhen(
+            orElse: () => const SizedBox(),
+            loading: () => const LoadingWidget(),
+            success: (data) => SizedBox(
+              height: 30,
+              child: MealCategoriesHeaderWidget(
+                data ?? [],
+                selectedMealCategoryProvider.data,
+                (mealCategoryVO) {
+                  ref
+                      .read(selectedMealCategoryNotifierProvider.notifier)
+                      .changeMealCategory(mealCategoryVO);
+                },
+              ),
             ),
           ),
+        ),
+        const SizedBox(
+          height: AppDimens.margin16,
         ),
         Expanded(
           child: SmartRefresher(

@@ -8,11 +8,11 @@ final mealMapper = Provider<MealsMapper>((ref) => MealsMapper());
 class MealsMapper
     implements BaseResponseMapper<MealListResponse, List<CacheMeal>> {
   @override
-  List<CacheMeal> mapFromResponse(MealListResponse data) {
+  List<CacheMeal> mapFromResponse(MealListResponse data, {Map? map}) {
     return data.meals
         .map((e) => CacheMeal(
               mealId: e.idMeal,
-              mealCategory: "categories",
+              mealCategory: map!['categoryName'],
               ingredient: "",
               mealArea: "",
               mealImage: e.strMealThumb,

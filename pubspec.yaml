@@ -62,6 +62,9 @@ dependencies:
   #Shimmer
   shimmer: ^3.0.0
 
+  #Loading Indicator
+  loading_indicator: ^3.1.1
+
   #Database
   hive: ^2.2.3
   hive_flutter: ^1.1.0

@@ -37,7 +37,9 @@ class MealsRemoteDataSourceImpl extends BaseRemoteSource
               dioClient.get(endpoint, queryParameters: {"c": categoryName}))
           .then((response) {
         return _mealsMapper
-            .mapFromResponse(MealListResponse.fromJson(response.data));
+            .mapFromResponse(MealListResponse.fromJson(response.data), map: {
+          "categoryName": categoryName,
+        });
       });
     } catch (e) {
       rethrow;

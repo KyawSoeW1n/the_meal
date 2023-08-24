@@ -25,6 +25,7 @@ class MealSelectedChipItemWidget extends StatelessWidget {
         label: TextViewWidget(
           mealCategoryVO.name ?? "",
           fontWeight: FontWeight.w600,
+          lineHeight: 0,
         ),
         selected: isSelected,
         onSelected: (bool selected) {

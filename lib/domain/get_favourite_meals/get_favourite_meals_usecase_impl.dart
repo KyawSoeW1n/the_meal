@@ -14,6 +14,6 @@ class GetFavouriteMealsUseCaseImpl extends GetFavouritePostUseCase {
 
   @override
   Stream<List<CacheMeal>> getFavouritePostsList() {
-    return _favouriteMealsLocalDataSourceImpl.getMealsList();
+    return _favouriteMealsLocalDataSourceImpl.getFavouriteMeal();
   }
 }

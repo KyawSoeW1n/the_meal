@@ -10,7 +10,7 @@ final postLocalDataSourceImpl = Provider<MealsLocalDataSourceImpl>((ref) =>
     MealsLocalDataSourceImpl(ref.read(mealMapper), ref.read(databaseService)));
 
 class MealsLocalDataSourceImpl extends BaseRemoteSource
-    implements FavouritePostLocalDataSource {
+    implements FavouriteMealLocalDataSource {
   final MealsMapper postMapper;
   final DatabaseService _databaseService;
 
@@ -25,12 +25,17 @@ class MealsLocalDataSourceImpl extends BaseRemoteSource
   }
 
   @override
-  Stream<List<CacheMeal>> getMealsList() {
-    return _databaseService.getPostStream();
+  Stream<List<CacheMeal>> getMealsList(String categoryName) {
+    return _databaseService.getMealStream(categoryName);
   }
 
   @override
   Future<void> insertMealList(List<CacheMeal> postList) {
     return _databaseService.insertPostList(postList);
+  }
+
+  @override
+  Stream<List<CacheMeal>> getFavouriteMeal() {
+    return _databaseService.getFavouriteMealListStream();
   }
 }
