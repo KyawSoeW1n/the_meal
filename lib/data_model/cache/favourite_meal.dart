@@ -5,7 +5,7 @@ part 'favourite_meal.g.dart';
 @HiveType(typeId: 1)
 class CacheMeal extends HiveObject {
   @HiveField(0)
-  final int mealId;
+  final String mealId;
 
   @HiveField(1)
   final String mealName;
@@ -26,15 +26,15 @@ class CacheMeal extends HiveObject {
   @HiveField(8)
   bool isFavourite;
 
-  CacheMeal(
-    this.mealId,
-    this.mealName,
-    this.mealCategory,
-    this.mealArea,
-    this.mealInstruction,
-    this.mealImage,
-    this.youtubeLink,
-    this.ingredient,
-    this.isFavourite,
-  );
+  CacheMeal({
+    required this.mealId,
+    required this.mealName,
+    required this.mealCategory,
+    required this.mealArea,
+    required this.mealInstruction,
+    required this.mealImage,
+    required this.youtubeLink,
+    required this.ingredient,
+    required this.isFavourite,
+  });
 }

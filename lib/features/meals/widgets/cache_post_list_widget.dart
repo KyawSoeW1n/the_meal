@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/widget/common/text_view_widget.dart';
+import 'package:the_meal/widget/common/text_view_widget.dart';
 
 import '../../../core/locale/localization_helper.dart';
 import '../../../data_source/local/app_database.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
-import 'package:riverpod_testing/mapper/meal_list_mapper.dart';
+import 'package:the_meal/data_model/cache/favourite_meal.dart';
+import 'package:the_meal/mapper/meal_list_mapper.dart';
 
 import '../../../core/network/base_remote_datasource.dart';
 import '../app_database.dart';

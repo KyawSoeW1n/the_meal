@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/data_source/local/favourite_post/favourite_post_local_datasource_impl.dart';
-import 'package:riverpod_testing/data_source/network/meals/meals_remote_datasource_impl.dart';
+import 'package:the_meal/data_source/local/favourite_post/favourite_post_local_datasource_impl.dart';
+import 'package:the_meal/data_source/network/meals/meals_remote_datasource_impl.dart';
 
 import 'fetch_posts_usecase.dart';
 
@@ -21,10 +21,10 @@ class FetchMealListUseCaseImpl extends FetchMealListPostUseCase {
   );
 
   @override
-  Future<void> fetchMealList() async {
+  Future<void> fetchMealList(String categoryName) async {
     try {
-      final postList = await _mealsRemoteDataSourceImpl.getMealList();
-      _mealsLocalDataSourceImpl.insertMealList(postList);
+      final mealList = await _mealsRemoteDataSourceImpl.getMealList(categoryName);
+      _mealsLocalDataSourceImpl.insertMealList(mealList);
     } catch (e) {
       rethrow;
     }

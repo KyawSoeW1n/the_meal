@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_testing/core/network/exception/api_exception.dart';
-import 'package:riverpod_testing/core/network/exception/app_exception.dart';
-import 'package:riverpod_testing/core/network/exception/base_exception.dart';
-import 'package:riverpod_testing/core/network/exception/json_format_exception.dart';
-import 'package:riverpod_testing/core/network/exception/network_exception.dart';
-import 'package:riverpod_testing/core/network/exception/not_found_exception.dart';
-import 'package:riverpod_testing/core/network/exception/service_unavailable_exception.dart';
-import 'package:riverpod_testing/core/network/exception/timeout_exception.dart';
-import 'package:riverpod_testing/core/network/exception/unauthorize_exception.dart';
+import 'package:the_meal/core/network/exception/api_exception.dart';
+import 'package:the_meal/core/network/exception/app_exception.dart';
+import 'package:the_meal/core/network/exception/base_exception.dart';
+import 'package:the_meal/core/network/exception/json_format_exception.dart';
+import 'package:the_meal/core/network/exception/network_exception.dart';
+import 'package:the_meal/core/network/exception/not_found_exception.dart';
+import 'package:the_meal/core/network/exception/service_unavailable_exception.dart';
+import 'package:the_meal/core/network/exception/timeout_exception.dart';
+import 'package:the_meal/core/network/exception/unauthorize_exception.dart';
 
 class BaseErrorHandlingView extends StatelessWidget {
   final Object errorException;

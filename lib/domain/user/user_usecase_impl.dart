@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/data_source/local/app_database.dart';
+import 'package:the_meal/data_source/local/app_database.dart';
 
 import 'user_usecase.dart';
 

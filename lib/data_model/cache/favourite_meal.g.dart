@@ -17,15 +17,15 @@ class CacheMealAdapter extends TypeAdapter<CacheMeal> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return CacheMeal(
-      fields[0] as int,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-      fields[4] as String,
-      fields[5] as String,
-      fields[6] as String,
-      fields[7] as String,
-      fields[8] as bool,
+      mealId: fields[0] as String,
+      mealName: fields[1] as String,
+      mealCategory: fields[2] as String,
+      mealArea: fields[3] as String,
+      mealInstruction: fields[4] as String,
+      mealImage: fields[5] as String,
+      youtubeLink: fields[6] as String,
+      ingredient: fields[7] as String,
+      isFavourite: fields[8] as bool,
     );
   }
 

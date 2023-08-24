@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_testing/widget/common/text_view_widget.dart';
+import 'package:the_meal/widget/common/text_view_widget.dart';
 
 class CommonElevatedButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
+import 'package:the_meal/data_model/cache/favourite_meal.dart';
 
 import 'app_constants/app_route_configuration.dart';
 import 'core/config/flavors.dart';

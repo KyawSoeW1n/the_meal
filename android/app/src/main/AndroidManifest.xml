@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kuriotestuya.riverpod.riverpod_testing">
+    package="com.kuriotestuya.riverpod.the_meal">
 
     <application
         android:name="${applicationName}"

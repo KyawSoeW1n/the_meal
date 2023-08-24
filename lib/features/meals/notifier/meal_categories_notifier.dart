@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/core/network/exception/base_exception.dart';
-import 'package:riverpod_testing/domain/fetch_meal_categories/fetch_meal_categories_usecase_impl.dart';
+import 'package:the_meal/core/network/exception/base_exception.dart';
+import 'package:the_meal/domain/fetch_meal_categories/fetch_meal_categories_usecase_impl.dart';
 
 import '../../../core/state.dart';
 import '../../../data_model/vo/meal_category_vo.dart';

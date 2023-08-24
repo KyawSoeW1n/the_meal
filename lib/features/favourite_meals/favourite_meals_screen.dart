@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/core/base/base_view.dart';
-import 'package:riverpod_testing/features/favourite_meals/widget/favourite_meals_item_widget.dart';
-import 'package:riverpod_testing/widget/common/common_app_bar.dart';
+import 'package:the_meal/core/base/base_view.dart';
+import 'package:the_meal/features/favourite_meals/widget/favourite_meals_item_widget.dart';
+import 'package:the_meal/widget/common/common_app_bar.dart';
 
 import '../../data_source/local/app_database.dart';
 import 'notifier/favourite_meals_notifier.dart';

@@ -1,4 +1,4 @@
-package com.kuriotestuya.riverpod.riverpod_testing
+package com.kuriotestuya.riverpod.the_meal
 
 import io.flutter.embedding.android.FlutterActivity
 

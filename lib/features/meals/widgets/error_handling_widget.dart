@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_testing/widget/error_handling/base_error_handling_view.dart';
+import 'package:the_meal/widget/error_handling/base_error_handling_view.dart';
 
 class ErrorHandlingWidget extends BaseErrorHandlingView {
   final Object exception;

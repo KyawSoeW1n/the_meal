@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod_testing/core/network/exception/network_exception.dart';
-import 'package:riverpod_testing/core/utils/network_util.dart';
+import 'package:the_meal/core/network/exception/network_exception.dart';
+import 'package:the_meal/core/utils/network_util.dart';
 
 import '../../data_source/network/error_handlers.dart';
 import 'dio_provider/dio_provider.dart';
