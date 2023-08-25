@@ -2,24 +2,25 @@ import 'dart:ui';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
-import 'package:riverpod_testing/app_constants/db_constants.dart';
-import 'package:riverpod_testing/core/enum_collection/theme_type.dart';
-import 'package:riverpod_testing/core/locale/support_locale.dart';
-import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:the_meal/app_constants/db_constants.dart';
+import 'package:the_meal/core/enum_collection/theme_type.dart';
+import 'package:the_meal/core/locale/support_locale.dart';
+import 'package:the_meal/data_model/cache/favourite_meal.dart';
+
+import '../../features/meals/notifier/selected_meal_categories_notifier.dart';
 
 final databaseService = Provider<DatabaseService>((_) => DatabaseService());
 
-final postsStreamProvider = StreamProvider.autoDispose((ref) async* {
-  yield* ref.watch(databaseService).getPostStream();
-});
-
-final favouritePostsStreamProvider = StreamProvider.autoDispose((ref) async* {
-  yield* ref.watch(databaseService).getFavouritePostStream();
+final mealListStreamProvider = StreamProvider.autoDispose((ref) async* {
+  final mealCategory = ref.watch(selectedMealCategoryNotifierProvider);
+  yield* ref
+      .watch(databaseService)
+      .getMealStream(mealCategory.data?.name ?? "");
 });
 
 final favouritePostListStream = StreamProvider.autoDispose((ref) async* {
-  yield* ref.watch(databaseService).getFavouritePostListStream();
+  yield* ref.watch(databaseService).getFavouriteMealListStream();
 });
 
 class DatabaseService {
@@ -50,7 +51,16 @@ class DatabaseService {
     }
   }
 
-  Future<void> initPostBox() async {
+  Future<void> initUserDataBox() async {
+    await Hive.openBox<String>(DBConstants.userBox)
+        .then((value) => _userDataBox = value);
+
+    if (_userDataBox.values.isEmpty) {
+      _userDataBox.add("");
+    }
+  }
+
+  Future<void> initMealBox() async {
     await Hive.openBox<CacheMeal>(DBConstants.postBox)
         .then((value) => _favouriteMealBox = value);
   }
@@ -89,46 +99,35 @@ class DatabaseService {
     }
   }
 
-  Stream<List<CacheMeal>> getPostStream() {
+  Stream<List<CacheMeal>> getMealStream(String categoryName) {
     return _favouriteMealBox
         .watch()
-        .map((event) => getPostList())
-        .startWith(getPostList());
+        .map((event) => getMealList(categoryName))
+        .startWith(getMealList(categoryName));
   }
 
-  Stream<int> getFavouritePostStream() {
+  Stream<List<CacheMeal>> getFavouriteMealListStream() {
     return _favouriteMealBox
         .watch()
-        .map((event) => getFavouritePostCount())
-        .startWith(getFavouritePostCount());
+        .map((event) => getFavouriteMealList())
+        .startWith(getFavouriteMealList());
   }
 
-  Stream<List<CacheMeal>> getFavouritePostListStream() {
-    return _favouriteMealBox
-        .watch()
-        .map((event) => getFavouritePostList())
-        .startWith(getFavouritePostList());
-  }
-
-  List<CacheMeal> getPostList() {
-    return List<CacheMeal>.from(_favouriteMealBox.values);
+  List<CacheMeal> getMealList(String categoryName) {
+    final favouriteList = List<CacheMeal>.from(_favouriteMealBox.values)
+        .where((element) => element.mealCategory == categoryName)
+        .toList();
+    return favouriteList;
   }
 
   Locale getLanguage() {
     return Locale(_languageBox.getAt(0) ?? SupportedLocale.en.languageCode);
   }
 
-  List<CacheMeal> getFavouritePostList() {
+  List<CacheMeal> getFavouriteMealList() {
     final favouriteList = List<CacheMeal>.from(_favouriteMealBox.values)
         .where((element) => element.isFavourite)
         .toList();
     return favouriteList;
-  }
-
-  int getFavouritePostCount() {
-    final favouritePostList = List<CacheMeal>.from(_favouriteMealBox.values)
-        .where((element) => element.isFavourite)
-        .toList();
-    return favouritePostList.length;
   }
 }

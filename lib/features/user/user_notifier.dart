@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/core/state.dart';
-import 'package:riverpod_testing/domain/user/user_usecase_impl.dart';
+import 'package:the_meal/core/state.dart';
+import 'package:the_meal/domain/user/user_usecase_impl.dart';
 
 final userNotifierProvider =
     StateNotifierProvider.autoDispose<UserNotifier, State<String>>((ref) {

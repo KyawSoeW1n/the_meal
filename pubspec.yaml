@@ -1,5 +1,5 @@
-name: riverpod_testing
-description: Riverpod Testing
+name: the_meal
+description: The Meal
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -61,6 +61,9 @@ dependencies:
 
   #Shimmer
   shimmer: ^3.0.0
+
+  #Loading Indicator
+  loading_indicator: ^3.1.1
 
   #Database
   hive: ^2.2.3

@@ -2,10 +2,10 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpod_testing/core/locale/locale_provider.dart';
-import 'package:riverpod_testing/core/locale/support_locale.dart';
-import 'package:riverpod_testing/core/resource/app_dimens.dart';
-import 'package:riverpod_testing/widget/common/text_view_widget.dart';
+import 'package:the_meal/core/locale/locale_provider.dart';
+import 'package:the_meal/core/locale/support_locale.dart';
+import 'package:the_meal/core/resource/app_dimens.dart';
+import 'package:the_meal/widget/common/text_view_widget.dart';
 
 import '../../app_constants/app_routes.dart';
 import '../../core/locale/localization_helper.dart';

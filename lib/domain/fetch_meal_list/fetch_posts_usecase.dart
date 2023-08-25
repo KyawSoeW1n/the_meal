@@ -1,3 +1,3 @@
 abstract class FetchMealListPostUseCase {
-  Future<void> fetchMealList();
+  Future<void> fetchMealList(String categoryName);
 }

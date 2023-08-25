@@ -1,13 +1,11 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_testing/app_constants/api_routes.dart';
-import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
-import 'package:riverpod_testing/data_model/response/meal_categories.dart';
-import 'package:riverpod_testing/data_source/network/meals/meals_remote_datasource.dart';
-import 'package:riverpod_testing/mapper/meal_categoryies_mapper.dart';
-import 'package:riverpod_testing/mapper/meal_list_mapper.dart';
+import 'package:the_meal/app_constants/api_routes.dart';
+import 'package:the_meal/data_model/cache/favourite_meal.dart';
+import 'package:the_meal/data_model/response/meal_categories.dart';
+import 'package:the_meal/data_model/response/meal_list_response.dart';
+import 'package:the_meal/data_source/network/meals/meals_remote_datasource.dart';
+import 'package:the_meal/mapper/meal_categoryies_mapper.dart';
+import 'package:the_meal/mapper/meal_list_mapper.dart';
 
 import '../../../app_constants/app_constants.dart';
 import '../../../core/network/base_remote_datasource.dart';
@@ -31,14 +29,17 @@ class MealsRemoteDataSourceImpl extends BaseRemoteSource
   );
 
   @override
-  Future<List<CacheMeal>> getMealList() async {
+  Future<List<CacheMeal>> getMealList(String categoryName) async {
     try {
       final endpoint =
           "${AppConstants.baseUrl}${ApiRoutes.getMealsListByeCategory}";
       return callApiWithErrorParser(() =>
-              dioClient.get(endpoint, queryParameters: {"c": "Breakfast"}))
+              dioClient.get(endpoint, queryParameters: {"c": categoryName}))
           .then((response) {
-        return _mealsMapper.mapFromResponse(response.data);
+        return _mealsMapper
+            .mapFromResponse(MealListResponse.fromJson(response.data), map: {
+          "categoryName": categoryName,
+        });
       });
     } catch (e) {
       rethrow;
@@ -51,7 +52,8 @@ class MealsRemoteDataSourceImpl extends BaseRemoteSource
       final endpoint = "${AppConstants.baseUrl}${ApiRoutes.getCategories}";
       return callApiWithErrorParser(() => dioClient.get(endpoint))
           .then((response) {
-        return _mealCategoriesMapper.mapFromResponse(MealCategories.fromJson(response.data));
+        return _mealCategoriesMapper
+            .mapFromResponse(MealCategories.fromJson(response.data));
       });
     } catch (e) {
       rethrow;

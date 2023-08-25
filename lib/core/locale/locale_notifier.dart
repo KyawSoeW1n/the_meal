@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/core/locale/support_locale.dart';
-import 'package:riverpod_testing/domain/get_language/get_language_usecase_impl.dart';
+import 'package:the_meal/core/locale/support_locale.dart';
+import 'package:the_meal/domain/get_language/get_language_usecase_impl.dart';
 
 import '../../domain/change_language/change_language_usecase_impl.dart';
 

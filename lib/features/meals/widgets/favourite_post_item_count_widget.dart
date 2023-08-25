@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_testing/core/resource/app_dimens.dart';
+import 'package:the_meal/core/resource/app_dimens.dart';
 
 import '../../../core/locale/localization_helper.dart';
 import '../../../widget/common/text_view_widget.dart';

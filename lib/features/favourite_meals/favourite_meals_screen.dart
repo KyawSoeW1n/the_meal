@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_testing/core/base/base_view.dart';
-import 'package:riverpod_testing/features/favourite_meals/widget/favourite_meals_item_widget.dart';
-import 'package:riverpod_testing/widget/common/common_app_bar.dart';
+import 'package:the_meal/core/base/base_view.dart';
+import 'package:the_meal/widget/common/common_app_bar.dart';
 
+import '../../core/resource/app_dimens.dart';
 import '../../data_source/local/app_database.dart';
+import '../../widget/meal/meal_item.dart';
 import 'notifier/favourite_meals_notifier.dart';
 
 class FavouriteMealsScreen extends BaseView {
   FavouriteMealsScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
+  PreferredSizeWidget? appBar(BuildContext context,WidgetRef ref) {
     return const CommonAppBar("Favourites");
   }
 
@@ -31,20 +32,32 @@ class FavouriteMealsScreen extends BaseView {
           error: (err, stack) => Container(),
           data: (content) {
             return Expanded(
-                child: CustomScrollView(
-              slivers: [
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return FavouriteMealItemWidget(
-                        content[index],
-                        favouritePostNotiProvider.changePostStatus,
-                      );
-                    },
-                    childCount: content.length, // Number of items in the list
-                  ),
-                )
-              ],
+                child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppDimens.margin16,
+              ),
+              child: CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: AppDimens.margin8,
+                      crossAxisSpacing: AppDimens.margin4,
+                      childAspectRatio: 1.0,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return MealItem(
+                          content[index],
+                          favouritePostNotiProvider.changePostStatus,
+                        );
+                      },
+                      childCount: content.length, // Number of items in the list
+                    ),
+                  )
+                ],
+              ),
             ));
           },
         )

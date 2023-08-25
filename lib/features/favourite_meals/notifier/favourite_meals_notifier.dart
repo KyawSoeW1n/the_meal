@@ -1,7 +1,7 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_testing/data_model/cache/favourite_meal.dart';
-import 'package:riverpod_testing/domain/change_favourite_meal_status/change_favourite_meal_status_usecase.dart';
-import 'package:riverpod_testing/domain/change_favourite_meal_status/change_favourite_meal_status_usecase_impl.dart';
+import 'package:the_meal/data_model/cache/favourite_meal.dart';
+import 'package:the_meal/domain/change_favourite_meal_status/change_favourite_meal_status_usecase.dart';
+import 'package:the_meal/domain/change_favourite_meal_status/change_favourite_meal_status_usecase_impl.dart';
 
 import '../../../core/state.dart';
 import '../../../data_model/vo/meal_category_vo.dart';
