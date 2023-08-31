@@ -23,6 +23,7 @@ mixin _$MealCategories {
   List<Category> get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $MealCategoriesCopyWith<MealCategories> get copyWith =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ abstract class $MealCategoriesCopyWith<$Res> {
   factory $MealCategoriesCopyWith(
           MealCategories value, $Res Function(MealCategories) then) =
       _$MealCategoriesCopyWithImpl<$Res, MealCategories>;
+
   @useResult
   $Res call({List<Category> categories});
 }
@@ -44,6 +46,7 @@ class _$MealCategoriesCopyWithImpl<$Res, $Val extends MealCategories>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -67,6 +70,7 @@ abstract class _$$_MealCategoriesCopyWith<$Res>
   factory _$$_MealCategoriesCopyWith(
           _$_MealCategories value, $Res Function(_$_MealCategories) then) =
       __$$_MealCategoriesCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<Category> categories});
@@ -104,6 +108,7 @@ class _$_MealCategories implements _MealCategories {
       _$$_MealCategoriesFromJson(json);
 
   final List<Category> _categories;
+
   @override
   List<Category> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
@@ -153,6 +158,7 @@ abstract class _MealCategories implements MealCategories {
 
   @override
   List<Category> get categories;
+
   @override
   @JsonKey(ignore: true)
   _$$_MealCategoriesCopyWith<_$_MealCategories> get copyWith =>
@@ -166,11 +172,15 @@ Category _$CategoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Category {
   String get idCategory => throw _privateConstructorUsedError;
+
   String get strCategory => throw _privateConstructorUsedError;
+
   String get strCategoryThumb => throw _privateConstructorUsedError;
+
   String get strCategoryDescription => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $CategoryCopyWith<Category> get copyWith =>
       throw _privateConstructorUsedError;
@@ -180,6 +190,7 @@ mixin _$Category {
 abstract class $CategoryCopyWith<$Res> {
   factory $CategoryCopyWith(Category value, $Res Function(Category) then) =
       _$CategoryCopyWithImpl<$Res, Category>;
+
   @useResult
   $Res call(
       {String idCategory,
@@ -195,6 +206,7 @@ class _$CategoryCopyWithImpl<$Res, $Val extends Category>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -232,6 +244,7 @@ abstract class _$$_CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res> {
   factory _$$_CategoryCopyWith(
           _$_Category value, $Res Function(_$_Category) then) =
       __$$_CategoryCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -349,12 +362,16 @@ abstract class _Category implements Category {
 
   @override
   String get idCategory;
+
   @override
   String get strCategory;
+
   @override
   String get strCategoryThumb;
+
   @override
   String get strCategoryDescription;
+
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>

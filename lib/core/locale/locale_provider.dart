@@ -5,9 +5,11 @@ import 'package:the_meal/domain/change_language/change_language_usecase_impl.dar
 import '../../domain/get_language/get_language_usecase_impl.dart';
 import 'locale_notifier.dart';
 
-final localeProvider = StateNotifierProvider<LocaleNotifier, Locale>((ref) {
-  return LocaleNotifier(
-    ref.read(changeLanguageUseCaseImpl),
-    ref.read(getLanguageUseCaseImpl),
-  );
-});
+final localeProvider = StateNotifierProvider<LocaleNotifier, Locale>(
+  (ref) {
+    return LocaleNotifier(
+      ref.read(changeLanguageUseCaseImpl),
+      ref.read(getLanguageUseCaseImpl),
+    );
+  },
+);

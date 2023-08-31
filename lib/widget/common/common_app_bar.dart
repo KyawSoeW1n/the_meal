@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_meal/widget/common/text_view_widget.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -9,7 +10,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(
+      title: TextViewWidget(
         title,
       ),
       actions: actionList,

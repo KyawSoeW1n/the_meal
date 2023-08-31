@@ -23,7 +23,8 @@ class FetchMealListUseCaseImpl extends FetchMealListPostUseCase {
   @override
   Future<void> fetchMealList(String categoryName) async {
     try {
-      final mealList = await _mealsRemoteDataSourceImpl.getMealList(categoryName);
+      final mealList =
+          await _mealsRemoteDataSourceImpl.getMealList(categoryName);
       _mealsLocalDataSourceImpl.insertMealList(mealList);
     } catch (e) {
       rethrow;

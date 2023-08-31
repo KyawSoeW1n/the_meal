@@ -10,17 +10,19 @@ class MealsMapper
   @override
   List<CacheMeal> mapFromResponse(MealListResponse data, {Map? map}) {
     return data.meals
-        .map((e) => CacheMeal(
-              mealId: e.idMeal,
-              mealCategory: map!['categoryName'],
-              ingredient: "",
-              mealArea: "",
-              mealImage: e.strMealThumb,
-              mealInstruction: "",
-              mealName: e.strMeal,
-              youtubeLink: "",
-              isFavourite: false,
-            ))
+        .map(
+          (e) => CacheMeal(
+            mealId: e.idMeal,
+            mealCategory: map!['categoryName'],
+            ingredient: "",
+            mealArea: "",
+            mealImage: e.strMealThumb,
+            mealInstruction: "",
+            mealName: e.strMeal,
+            youtubeLink: "",
+            isFavourite: false,
+          ),
+        )
         .toList();
   }
 }

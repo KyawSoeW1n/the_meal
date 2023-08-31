@@ -37,17 +37,13 @@ class MealItem extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: IconButton(
-              onPressed: () => function(cacheMeal),
-              icon: cacheMeal.isFavourite
-                  ? const Icon(
-                      Icons.favorite,
-                      color: AppColors.primaryColor,
-                    )
-                  : const Icon(
-                      Icons.favorite_outline,
-                      color: AppColors.primaryColor,
-                    ),
-            ),
+                onPressed: () => function(cacheMeal),
+                icon: Icon(
+                  cacheMeal.isFavourite
+                      ? Icons.favorite
+                      : Icons.favorite_outline,
+                  color: AppColors.primaryColor,
+                )),
           ),
           Positioned(
             bottom: 0,

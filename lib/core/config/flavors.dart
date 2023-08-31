@@ -12,11 +12,11 @@ class F {
   static String get title {
     switch (appFlavor) {
       case Flavor.local:
-        return 'rio_sport Local';
+        return 'The Meal Local';
       case Flavor.development:
-        return 'rio_sport Development';
+        return 'The Meal Development';
       case Flavor.production:
-        return 'rio_sport Production';
+        return 'The Meal Production';
       default:
         return 'title';
     }

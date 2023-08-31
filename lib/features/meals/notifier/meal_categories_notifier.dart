@@ -7,14 +7,16 @@ import '../../../core/state.dart';
 import '../../../data_model/vo/meal_category_vo.dart';
 
 final mealCategoriesNotifierProvider = StateNotifierProvider.autoDispose<
-    MealCategoriesNotifier, State<List<MealCategoryVO>>>((ref) {
-  final selectMealCategory =
-      ref.watch(selectedMealCategoryNotifierProvider.notifier);
-  return MealCategoriesNotifier(
-    ref.read(fetchMealCategoriesUseCaseImpl),
-    selectMealCategory,
-  );
-});
+    MealCategoriesNotifier, State<List<MealCategoryVO>>>(
+  (ref) {
+    final selectMealCategory =
+        ref.watch(selectedMealCategoryNotifierProvider.notifier);
+    return MealCategoriesNotifier(
+      ref.read(fetchMealCategoriesUseCaseImpl),
+      selectMealCategory,
+    );
+  },
+);
 
 class MealCategoriesNotifier
     extends StateNotifier<State<List<MealCategoryVO>>> {

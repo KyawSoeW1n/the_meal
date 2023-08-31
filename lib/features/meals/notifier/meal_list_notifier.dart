@@ -9,14 +9,16 @@ import '../../../data_model/vo/meal_category_vo.dart';
 import '../../../domain/fetch_meal_list/fetch_posts_usecase_impl.dart';
 
 final mealListNotifierProvider = StateNotifierProvider.autoDispose<
-    MealListNotifier, State<List<MealCategoryVO>>>((ref) {
-  final mealCategory = ref.watch(selectedMealCategoryNotifierProvider);
-  return MealListNotifier(
-    ref.read(fetchMealListUseCaseImpl),
-    ref.read(changeFavouriteMealStatusUseCaseImpl),
-    mealCategory.data,
-  );
-});
+    MealListNotifier, State<List<MealCategoryVO>>>(
+  (ref) {
+    final mealCategory = ref.watch(selectedMealCategoryNotifierProvider);
+    return MealListNotifier(
+      ref.read(fetchMealListUseCaseImpl),
+      ref.read(changeFavouriteMealStatusUseCaseImpl),
+      mealCategory.data,
+    );
+  },
+);
 
 class MealListNotifier extends StateNotifier<State<List<MealCategoryVO>>> {
   final FetchMealListUseCaseImpl _getPostsUseCaseImpl;

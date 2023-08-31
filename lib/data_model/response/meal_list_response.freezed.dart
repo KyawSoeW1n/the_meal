@@ -23,6 +23,7 @@ mixin _$MealListResponse {
   List<Meal> get meals => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $MealListResponseCopyWith<MealListResponse> get copyWith =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ abstract class $MealListResponseCopyWith<$Res> {
   factory $MealListResponseCopyWith(
           MealListResponse value, $Res Function(MealListResponse) then) =
       _$MealListResponseCopyWithImpl<$Res, MealListResponse>;
+
   @useResult
   $Res call({List<Meal> meals});
 }
@@ -44,6 +46,7 @@ class _$MealListResponseCopyWithImpl<$Res, $Val extends MealListResponse>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -67,6 +70,7 @@ abstract class _$$_MealListResponseCopyWith<$Res>
   factory _$$_MealListResponseCopyWith(
           _$_MealListResponse value, $Res Function(_$_MealListResponse) then) =
       __$$_MealListResponseCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<Meal> meals});
@@ -103,6 +107,7 @@ class _$_MealListResponse implements _MealListResponse {
       _$$_MealListResponseFromJson(json);
 
   final List<Meal> _meals;
+
   @override
   List<Meal> get meals {
     if (_meals is EqualUnmodifiableListView) return _meals;
@@ -151,6 +156,7 @@ abstract class _MealListResponse implements MealListResponse {
 
   @override
   List<Meal> get meals;
+
   @override
   @JsonKey(ignore: true)
   _$$_MealListResponseCopyWith<_$_MealListResponse> get copyWith =>
@@ -164,10 +170,13 @@ Meal _$MealFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Meal {
   String get strMeal => throw _privateConstructorUsedError;
+
   String get strMealThumb => throw _privateConstructorUsedError;
+
   String get idMeal => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $MealCopyWith<Meal> get copyWith => throw _privateConstructorUsedError;
 }
@@ -176,6 +185,7 @@ mixin _$Meal {
 abstract class $MealCopyWith<$Res> {
   factory $MealCopyWith(Meal value, $Res Function(Meal) then) =
       _$MealCopyWithImpl<$Res, Meal>;
+
   @useResult
   $Res call({String strMeal, String strMealThumb, String idMeal});
 }
@@ -187,6 +197,7 @@ class _$MealCopyWithImpl<$Res, $Val extends Meal>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -218,6 +229,7 @@ class _$MealCopyWithImpl<$Res, $Val extends Meal>
 abstract class _$$_MealCopyWith<$Res> implements $MealCopyWith<$Res> {
   factory _$$_MealCopyWith(_$_Meal value, $Res Function(_$_Meal) then) =
       __$$_MealCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String strMeal, String strMealThumb, String idMeal});
@@ -314,10 +326,13 @@ abstract class _Meal implements Meal {
 
   @override
   String get strMeal;
+
   @override
   String get strMealThumb;
+
   @override
   String get idMeal;
+
   @override
   @JsonKey(ignore: true)
   _$$_MealCopyWith<_$_Meal> get copyWith => throw _privateConstructorUsedError;

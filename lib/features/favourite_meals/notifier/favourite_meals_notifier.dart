@@ -7,11 +7,13 @@ import '../../../core/state.dart';
 import '../../../data_model/vo/meal_category_vo.dart';
 
 final favouritePostNotifierProvider =
-    StateNotifierProvider<FavouritePostNotifier, State<List<MealCategoryVO>>>((ref) {
-  return FavouritePostNotifier(
-    ref.read(changeFavouriteMealStatusUseCaseImpl),
-  );
-});
+    StateNotifierProvider<FavouritePostNotifier, State<List<MealCategoryVO>>>(
+  (ref) {
+    return FavouritePostNotifier(
+      ref.read(changeFavouriteMealStatusUseCaseImpl),
+    );
+  },
+);
 
 class FavouritePostNotifier extends StateNotifier<State<List<MealCategoryVO>>> {
   final ChangeFavouriteMealStatusUseCase _changeFavouriteMealStatusUseCase;

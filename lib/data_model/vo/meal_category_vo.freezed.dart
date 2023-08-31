@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MealCategoryVO {
   String get name => throw _privateConstructorUsedError;
+
   String get image => throw _privateConstructorUsedError;
+
   String get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,6 +32,7 @@ abstract class $MealCategoryVOCopyWith<$Res> {
   factory $MealCategoryVOCopyWith(
           MealCategoryVO value, $Res Function(MealCategoryVO) then) =
       _$MealCategoryVOCopyWithImpl<$Res, MealCategoryVO>;
+
   @useResult
   $Res call({String name, String image, String id});
 }
@@ -41,6 +44,7 @@ class _$MealCategoryVOCopyWithImpl<$Res, $Val extends MealCategoryVO>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -74,6 +78,7 @@ abstract class _$$_MealCategoryVOCopyWith<$Res>
   factory _$$_MealCategoryVOCopyWith(
           _$_MealCategoryVO value, $Res Function(_$_MealCategoryVO) then) =
       __$$_MealCategoryVOCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String name, String image, String id});
@@ -157,10 +162,13 @@ abstract class _MealCategoryVO implements MealCategoryVO {
 
   @override
   String get name;
+
   @override
   String get image;
+
   @override
   String get id;
+
   @override
   @JsonKey(ignore: true)
   _$$_MealCategoryVOCopyWith<_$_MealCategoryVO> get copyWith =>

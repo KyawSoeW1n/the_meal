@@ -12,9 +12,7 @@ class MealCategoriesMapper
   List<MealCategoryVO> mapFromResponse(MealCategories data, {Map? map}) {
     return data.categories
         .map((e) => MealCategoryVO(
-        name: e.strCategory, image: e.strCategoryThumb, id: e.idCategory))
+            name: e.strCategory, image: e.strCategoryThumb, id: e.idCategory))
         .toList();
   }
-
-
 }

@@ -4,7 +4,8 @@ import 'package:the_meal/data_source/network/meals/meals_remote_datasource_impl.
 import '../../data_model/vo/meal_category_vo.dart';
 import 'fetch_meal_categories_usecase.dart';
 
-final fetchMealCategoriesUseCaseImpl = Provider.autoDispose<FetchMealCategoriesUseCaseImpl>(
+final fetchMealCategoriesUseCaseImpl =
+    Provider.autoDispose<FetchMealCategoriesUseCaseImpl>(
   (ref) => FetchMealCategoriesUseCaseImpl(
     ref.watch(mealsRemoteDataSourceImpl),
   ),

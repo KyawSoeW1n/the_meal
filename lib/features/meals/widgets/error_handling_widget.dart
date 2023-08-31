@@ -7,10 +7,7 @@ class ErrorHandlingWidget extends BaseErrorHandlingView {
   const ErrorHandlingWidget({
     required this.exception,
     Key? key,
-  }) : super(
-          key: key,
-          errorException: exception,
-        );
+  }) : super(key: key, errorException: exception);
 
   @override
   Widget noInternetView(message) {
